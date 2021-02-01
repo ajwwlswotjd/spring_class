@@ -20,8 +20,8 @@ public class UserController {
 	public String logout( HttpSession session ) {
 		
 		session.removeAttribute("user");
-		
 		return "redirect:/";
+		
 	}
 	
 	@RequestMapping(value="regist" , method=RequestMethod.GET)
@@ -78,8 +78,13 @@ public class UserController {
 		
 		if(user.getId().equals("asdf") && user.getPassword().equals("1234")) {
 			session.setAttribute("user", user);
+			if(session.getAttribute("login_msg") != null) {
+				session.removeAttribute("login_msg");
+			}
 			return "redirect:/";
 		} else {
+			
+			session.setAttribute("login_msg", "아이디 혹은 비밀번호가 잘못되었습니다.");
 			return "redirect:/user/login";
 		}
 		

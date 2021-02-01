@@ -7,6 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<% if(session.getAttribute("login_msg") != null){ %>
+	<script>
+		alert("<%= session.getAttribute("login_msg")  %>");				
+	</script>
+	<% } %>
 	<form method="POST">
 		<input type="text" placeholder="아이디" name="id">
 		<input type="password" placeholder="비밀번호" name="password">
