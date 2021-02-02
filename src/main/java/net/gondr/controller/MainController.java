@@ -42,15 +42,6 @@ public class MainController {
 		model.addAttribute("msg" , name);
 		return "hello";
 	}
-	
-	@GetMapping("/asdf")
-	public String asdf(Model model, @RequestParam(value="id") String id , @RequestParam(value="password") String password , @RequestParam(value="password2") String password2 , @RequestParam(value="name") String name ,@RequestParam(value="email") String email  ) {
-		model.addAttribute("id" , id );
-		model.addAttribute("password" , password );
-		model.addAttribute("password2" , password2 );
-		model.addAttribute("name" , name );
-		model.addAttribute("email" , email );
-		return "asdf";
-	}
+
 	
 }

@@ -8,7 +8,7 @@
 </head>
 <body>
 
-	<h1>입력하신 아이디 : ${ user.id }</h1>
+	<h1>입력하신 아이디 : ${ user.userid }</h1>
 	<h1>입력하신 비밀번호 : ${ user.password }</h1>
 	<h1>입력하신 비밀번호 확인 : ${ user.password2 }</h1>
 	<h1>입력하신 이름 : ${ user.name }</h1>

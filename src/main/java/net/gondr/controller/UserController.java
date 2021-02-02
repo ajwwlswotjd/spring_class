@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import net.gondr.domain.UserVO;
 import net.gondr.domain.YYSampleVO;
@@ -16,12 +17,21 @@ import net.gondr.domain.YYSampleVO;
 @RequestMapping("/user/")
 public class UserController {
 	
+	@RequestMapping(value="data" , method=RequestMethod.GET)
+	public @ResponseBody UserVO getUserData() {
+		UserVO temp = new UserVO();
+		temp.setUserid("ajwwlswotjd");
+		temp.setPassword("1234");
+		temp.setUsername("정재성");
+		
+		return temp;
+	}
+	
 	@RequestMapping(value="logout" , method=RequestMethod.GET)
 	public String logout( HttpSession session ) {
 		
 		session.removeAttribute("user");
 		return "redirect:/";
-		
 	}
 	
 	@RequestMapping(value="regist" , method=RequestMethod.GET)
@@ -76,7 +86,7 @@ public class UserController {
 	@RequestMapping(value="login" , method=RequestMethod.POST)
 	public String loginProcess( HttpSession session , UserVO user ) {
 		
-		if(user.getId().equals("asdf") && user.getPassword().equals("1234")) {
+		if(user.getUserid().equals("asdf") && user.getPassword().equals("1234")) {
 			session.setAttribute("user", user);
 			return "redirect:/";
 		} else {
@@ -87,6 +97,17 @@ public class UserController {
 		
 //		return "redirect:/";
 		
+	}
+	
+	@RequestMapping( value="info" , method=RequestMethod.GET )
+	public String viewInfoPage( HttpSession session ) {
+		
+		if(session.getAttribute("user") == null) {
+//			session.setAttribute("flash", "로그인 후 확인하실 수 있습니다.");
+			return "redirect:/user/login";
+		}
+		
+		return "user/info";
 	}
 	
 }
