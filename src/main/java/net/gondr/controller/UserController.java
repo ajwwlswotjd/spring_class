@@ -78,9 +78,6 @@ public class UserController {
 		
 		if(user.getId().equals("asdf") && user.getPassword().equals("1234")) {
 			session.setAttribute("user", user);
-			if(session.getAttribute("login_msg") != null) {
-				session.removeAttribute("login_msg");
-			}
 			return "redirect:/";
 		} else {
 			

@@ -11,7 +11,8 @@
 	<script>
 		alert("<%= session.getAttribute("login_msg")  %>");				
 	</script>
-	<% } %>
+		<% session.removeAttribute("login_msg");
+	} %>
 	<form method="POST">
 		<input type="text" placeholder="아이디" name="id">
 		<input type="password" placeholder="비밀번호" name="password">
