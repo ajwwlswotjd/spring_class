@@ -28,7 +28,7 @@ public class UserDAOTest {
 	public void insertTest() {
 		
 		UserVO user = new UserVO();
-		user.setUserid("asdf");
+		user.setUserid("qqqqq");
 		user.setPassword("1234");
 		user.setUsername("정재성");
 		
